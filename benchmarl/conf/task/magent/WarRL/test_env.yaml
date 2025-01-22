@@ -1,7 +1,0 @@
-defaults:
-  - magent_adversarial_pursuit_config
-  - _self_
-
-map_size: 45
-minimap_mode: True
-extra_features: False

@@ -17,10 +17,10 @@ from benchmarl.utils import DEVICE_TYPING
 class MAgentTask(Task):
     """Enum for MAgent2 tasks."""
 
-    ADVERSARIAL_PURSUIT = None
+    # ADVERSARIAL_PURSUIT = None
     # BATTLE = None
     # BATTLEFIELD = None
-    # COMBINED_ARMS = None
+    COMBINED_ARMS = None
     # GATHER = None
     # TIGER_DEER = None
 
@@ -38,17 +38,17 @@ class MAgentTask(Task):
             return_state=True,
             seed=seed,
             done_on_any=False,
-            use_mask=False,
+            use_mask=True,
             device=device,
         )
 
     def __get_env(self, config) -> EnvBase:
         try:
             from magent2.environments import (
-                adversarial_pursuit_v4,
+                # adversarial_pursuit_v4,
                 # battle_v4,
                 # battlefield_v5,
-                # combined_arms_v6,
+                combined_arms_v6,
                 # gather_v5,
                 # tiger_deer_v4
             )
@@ -58,10 +58,10 @@ class MAgentTask(Task):
             )
 
         envs = {
-            "ADVERSARIAL_PURSUIT": adversarial_pursuit_v4,
+            # "ADVERSARIAL_PURSUIT": adversarial_pursuit_v4,
             # "BATTLE": battle_v4,
             # "BATTLEFIELD": battlefield_v5,
-            # "COMBINED_ARMS": combined_arms_v6,
+            "COMBINED_ARMS": combined_arms_v6,
             # "GATHER": gather_v5,
             # "TIGER_DEER": tiger_deer_v4
         }
@@ -134,7 +134,7 @@ class MAgentTask(Task):
 class CustomEnvTask(Task):
     """Enum for MAgent2 tasks."""
 
-    COMBINED_ARMS = None
+    TEST_ENV = None
 
     def get_env_fun(
         self,
@@ -150,7 +150,7 @@ class CustomEnvTask(Task):
             return_state=True,
             seed=seed,
             done_on_any=False,
-            use_mask=False,
+            use_mask=True,
             device=device,
         )
 
